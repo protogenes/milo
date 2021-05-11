@@ -111,6 +111,8 @@ import org.eclipse.milo.opcua.stack.core.types.structured.ElementOperand;
 import org.eclipse.milo.opcua.stack.core.types.structured.EndpointConfiguration;
 import org.eclipse.milo.opcua.stack.core.types.structured.EndpointDescription;
 import org.eclipse.milo.opcua.stack.core.types.structured.EndpointUrlListDataType;
+import org.eclipse.milo.opcua.stack.core.types.structured.EnumDefinition;
+import org.eclipse.milo.opcua.stack.core.types.structured.EnumField;
 import org.eclipse.milo.opcua.stack.core.types.structured.EnumValueType;
 import org.eclipse.milo.opcua.stack.core.types.structured.EventFieldList;
 import org.eclipse.milo.opcua.stack.core.types.structured.EventFilter;
@@ -226,6 +228,8 @@ import org.eclipse.milo.opcua.stack.core.types.structured.SignedSoftwareCertific
 import org.eclipse.milo.opcua.stack.core.types.structured.SimpleAttributeOperand;
 import org.eclipse.milo.opcua.stack.core.types.structured.StatusChangeNotification;
 import org.eclipse.milo.opcua.stack.core.types.structured.StatusResult;
+import org.eclipse.milo.opcua.stack.core.types.structured.StructureDefinition;
+import org.eclipse.milo.opcua.stack.core.types.structured.StructureField;
 import org.eclipse.milo.opcua.stack.core.types.structured.SubscriptionAcknowledgement;
 import org.eclipse.milo.opcua.stack.core.types.structured.SubscriptionDiagnosticsDataType;
 import org.eclipse.milo.opcua.stack.core.types.structured.TimeZoneDataType;
@@ -4071,6 +4075,70 @@ class DataTypeInitializer {
             RegisterServer2Response.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
                 () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
             RegisterServer2Response.XML_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
+        );
+        binaryDictionary.registerStructCodec(
+            new StructureDefinition.Codec().asBinaryCodec(),
+            "StructureDefinition",
+            StructureDefinition.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
+            StructureDefinition.BINARY_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
+        );
+        xmlDictionary.registerStructCodec(
+            new StructureDefinition.Codec().asXmlCodec(),
+            String.format("//xs:element[@name='%s']", "StructureDefinition"),
+            StructureDefinition.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
+            StructureDefinition.XML_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
+        );
+        binaryDictionary.registerStructCodec(
+            new StructureField.Codec().asBinaryCodec(),
+            "StructureField",
+            StructureField.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
+            StructureField.BINARY_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
+        );
+        xmlDictionary.registerStructCodec(
+            new StructureField.Codec().asXmlCodec(),
+            String.format("//xs:element[@name='%s']", "StructureField"),
+            StructureField.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
+            StructureField.XML_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
+        );
+        binaryDictionary.registerStructCodec(
+            new EnumDefinition.Codec().asBinaryCodec(),
+            "EnumDefinition",
+            EnumDefinition.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
+            EnumDefinition.BINARY_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
+        );
+        xmlDictionary.registerStructCodec(
+            new EnumDefinition.Codec().asXmlCodec(),
+            String.format("//xs:element[@name='%s']", "EnumDefinition"),
+            EnumDefinition.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
+            EnumDefinition.XML_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
+        );
+        binaryDictionary.registerStructCodec(
+            new EnumField.Codec().asBinaryCodec(),
+            "EnumField",
+            EnumField.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
+            EnumField.BINARY_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
+        );
+        xmlDictionary.registerStructCodec(
+            new EnumField.Codec().asXmlCodec(),
+            String.format("//xs:element[@name='%s']", "EnumField"),
+            EnumField.TYPE_ID.toNodeId(namespaceTable).orElseThrow(
+                () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI)),
+            EnumField.XML_ENCODING_ID.toNodeId(namespaceTable).orElseThrow(
                 () -> new IllegalStateException("namespace not registered: " + NAMESPACE_URI))
         );
     }

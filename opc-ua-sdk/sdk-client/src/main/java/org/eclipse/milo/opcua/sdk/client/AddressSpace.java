@@ -40,6 +40,7 @@ import org.eclipse.milo.opcua.stack.core.StatusCodes;
 import org.eclipse.milo.opcua.stack.core.UaException;
 import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
 import org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId;
+import org.eclipse.milo.opcua.stack.core.types.builtin.ExtensionObject;
 import org.eclipse.milo.opcua.stack.core.types.builtin.LocalizedText;
 import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
 import org.eclipse.milo.opcua.stack.core.types.builtin.QualifiedName;
@@ -52,6 +53,7 @@ import org.eclipse.milo.opcua.stack.core.types.enumerated.NodeClass;
 import org.eclipse.milo.opcua.stack.core.types.enumerated.TimestampsToReturn;
 import org.eclipse.milo.opcua.stack.core.types.structured.BrowseDescription;
 import org.eclipse.milo.opcua.stack.core.types.structured.BrowseResult;
+import org.eclipse.milo.opcua.stack.core.types.structured.DataTypeDefinition;
 import org.eclipse.milo.opcua.stack.core.types.structured.ReadResponse;
 import org.eclipse.milo.opcua.stack.core.types.structured.ReadValueId;
 import org.eclipse.milo.opcua.stack.core.types.structured.ReferenceDescription;
@@ -1132,6 +1134,9 @@ public class AddressSpace {
             UInteger userWriteMask = getAttributeOrNull(attributeValues.get(6), UInteger.class);
 
             Boolean isAbstract = (Boolean) attributeValues.get(7).getValue().getValue();
+            ExtensionObject dataTypeDefinitionObj = (ExtensionObject) attributeValues.get(8).getValue().getValue();
+            DataTypeDefinition dataTypeDefinition = dataTypeDefinitionObj == null ? null :
+                (DataTypeDefinition) dataTypeDefinitionObj.decode(client.getStaticSerializationContext());
 
             return new UaDataTypeNode(
                 client,
@@ -1142,7 +1147,8 @@ public class AddressSpace {
                 description,
                 writeMask,
                 userWriteMask,
-                isAbstract
+                isAbstract,
+                dataTypeDefinition
             );
         } catch (Throwable t) {
             throw UaException.extract(t)
