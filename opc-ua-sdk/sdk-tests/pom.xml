@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.eclipse.milo</groupId>
+        <groupId>de.protogenes.eclipse.milo</groupId>
         <artifactId>opc-ua-sdk</artifactId>
         <version>0.6.2-SNAPSHOT</version>
     </parent>
@@ -16,13 +16,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.milo</groupId>
+            <groupId>de.protogenes.eclipse.milo</groupId>
             <artifactId>sdk-client</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.milo</groupId>
+            <groupId>de.protogenes.eclipse.milo</groupId>
             <artifactId>sdk-server</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>

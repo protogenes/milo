@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.eclipse.milo</groupId>
+        <groupId>de.protogenes.eclipse.milo</groupId>
         <artifactId>opc-ua-stack</artifactId>
         <version>0.6.2-SNAPSHOT</version>
     </parent>
@@ -16,7 +16,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.milo</groupId>
+            <groupId>de.protogenes.eclipse.milo</groupId>
             <artifactId>bsd-core</artifactId>
             <version>0.6.2-SNAPSHOT</version>
         </dependency>
