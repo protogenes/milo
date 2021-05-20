@@ -41,7 +41,12 @@ public enum AttributeId {
     MinimumSamplingInterval(19),
     Historizing(20),
     Executable(21),
-    UserExecutable(22);
+    UserExecutable(22),
+    DataTypeDefinition(23);
+    //RolePermissions(24),
+    //UserRolePermissions(25),
+    //AccessRestrictions(26),
+    //AccessLevelEx(27);
 
     public static final ImmutableSet<AttributeId> BASE_ATTRIBUTES = ImmutableSet.copyOf(
         ImmutableSet.of(
@@ -51,7 +56,7 @@ public enum AttributeId {
     public static final ImmutableSet<AttributeId> DATA_TYPE_ATTRIBUTES = ImmutableSet.copyOf(
         Sets.union(
             BASE_ATTRIBUTES,
-            ImmutableSet.of(IsAbstract))
+            ImmutableSet.of(IsAbstract, DataTypeDefinition))
     );
 
     public static final ImmutableSet<AttributeId> METHOD_ATTRIBUTES = ImmutableSet.copyOf(

@@ -2468,6 +2468,87 @@ class ObjectNodeLoader {
         this.nodeManager.addNode(node);
     }
 
+    private void loadNode265() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.DataTypeDefinition_Encoding_DefaultXML, new QualifiedName(0, "Default XML"), new LocalizedText("en", "Default XML"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.DataTypeDefinition_Encoding_DefaultXML, Identifiers.HasEncoding, Identifiers.DataTypeDefinition.expanded(), false));
+//        node.addReference(new Reference(Identifiers.DataTypeDefinition_Encoding_DefaultXML, Identifiers.HasDescription, Identifiers.OpcUa_XmlSchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.DataTypeDefinition_Encoding_DefaultXML, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+    private void loadNode266() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.DataTypeDefinition_Encoding_DefaultBinary, new QualifiedName(0, "Default Binary"), new LocalizedText("en", "Default Binary"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.DataTypeDefinition_Encoding_DefaultBinary, Identifiers.HasEncoding, Identifiers.DataTypeDefinition.expanded(), false));
+//        node.addReference(new Reference(Identifiers.DataTypeDefinition_Encoding_DefaultBinary, Identifiers.HasDescription, Identifiers.OpcUa_BinarySchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.DataTypeDefinition_Encoding_DefaultBinary, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+
+    private void loadNode267() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.EnumDefinition_Encoding_DefaultXML, new QualifiedName(0, "Default XML"), new LocalizedText("en", "Default XML"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.EnumDefinition_Encoding_DefaultXML, Identifiers.HasEncoding, Identifiers.EnumDefinition.expanded(), false));
+//        node.addReference(new Reference(Identifiers.EnumDefinition_Encoding_DefaultXML, Identifiers.HasDescription, Identifiers.OpcUa_XmlSchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.EnumDefinition_Encoding_DefaultXML, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+    private void loadNode268() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.EnumDefinition_Encoding_DefaultBinary, new QualifiedName(0, "Default Binary"), new LocalizedText("en", "Default Binary"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.EnumDefinition_Encoding_DefaultBinary, Identifiers.HasEncoding, Identifiers.EnumDefinition.expanded(), false));
+//        node.addReference(new Reference(Identifiers.DataTypeDefinition_Encoding_DefaultBinary, Identifiers.HasDescription, Identifiers.OpcUa_BinarySchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.EnumDefinition_Encoding_DefaultBinary, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+    private void loadNode269() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.EnumField_Encoding_DefaultXML, new QualifiedName(0, "Default XML"), new LocalizedText("en", "Default XML"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.EnumField_Encoding_DefaultXML, Identifiers.HasEncoding, Identifiers.EnumField.expanded(), false));
+//        node.addReference(new Reference(Identifiers.EnumField_Encoding_DefaultXML, Identifiers.HasDescription, Identifiers.OpcUa_XmlSchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.EnumField_Encoding_DefaultXML, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+    private void loadNode270() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.EnumField_Encoding_DefaultBinary, new QualifiedName(0, "Default Binary"), new LocalizedText("en", "Default Binary"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.EnumField_Encoding_DefaultBinary, Identifiers.HasEncoding, Identifiers.EnumField.expanded(), false));
+//        node.addReference(new Reference(Identifiers.EnumField_Encoding_DefaultBinary, Identifiers.HasDescription, Identifiers.OpcUa_BinarySchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.EnumField_Encoding_DefaultBinary, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+    private void loadNode271() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.StructureDefinition_Encoding_DefaultXML, new QualifiedName(0, "Default XML"), new LocalizedText("en", "Default XML"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.StructureDefinition_Encoding_DefaultXML, Identifiers.HasEncoding, Identifiers.StructureDefinition.expanded(), false));
+//        node.addReference(new Reference(Identifiers.StructureDefinition_Encoding_DefaultXML, Identifiers.HasDescription, Identifiers.OpcUa_XmlSchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.StructureDefinition_Encoding_DefaultXML, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+    private void loadNode272() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.StructureDefinition_Encoding_DefaultBinary, new QualifiedName(0, "Default Binary"), new LocalizedText("en", "Default Binary"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.StructureDefinition_Encoding_DefaultBinary, Identifiers.HasEncoding, Identifiers.StructureDefinition.expanded(), false));
+//        node.addReference(new Reference(Identifiers.DataTypeDefinition_Encoding_DefaultBinary, Identifiers.HasDescription, Identifiers.OpcUa_BinarySchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.StructureDefinition_Encoding_DefaultBinary, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+    private void loadNode273() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.StructureField_Encoding_DefaultXML, new QualifiedName(0, "Default XML"), new LocalizedText("en", "Default XML"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.StructureField_Encoding_DefaultXML, Identifiers.HasEncoding, Identifiers.StructureField.expanded(), false));
+//        node.addReference(new Reference(Identifiers.StructureField_Encoding_DefaultXML, Identifiers.HasDescription, Identifiers.OpcUa_XmlSchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.StructureField_Encoding_DefaultXML, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
+    private void loadNode274() {
+        DataTypeEncodingTypeNode node = new DataTypeEncodingTypeNode(this.context, Identifiers.StructureField_Encoding_DefaultBinary, new QualifiedName(0, "Default Binary"), new LocalizedText("en", "Default Binary"), LocalizedText.NULL_VALUE, UInteger.valueOf(0), UInteger.valueOf(0), UByte.valueOf(0));
+        node.addReference(new Reference(Identifiers.StructureField_Encoding_DefaultBinary, Identifiers.HasEncoding, Identifiers.StructureField.expanded(), false));
+//        node.addReference(new Reference(Identifiers.StructureField_Encoding_DefaultBinary, Identifiers.HasDescription, Identifiers.OpcUa_BinarySchema_DataTypeDefinition.expanded(), true));
+        node.addReference(new Reference(Identifiers.StructureField_Encoding_DefaultBinary, Identifiers.HasTypeDefinition, Identifiers.DataTypeEncodingType.expanded(), true));
+        this.nodeManager.addNode(node);
+    }
+
     public void loadAllNodes() {
         loadNode0();
         loadNode1();
@@ -2734,5 +2815,15 @@ class ObjectNodeLoader {
         loadNode262();
         loadNode263();
         loadNode264();
+        loadNode265();
+        loadNode266();
+        loadNode267();
+        loadNode268();
+        loadNode269();
+        loadNode270();
+        loadNode271();
+        loadNode272();
+        loadNode273();
+        loadNode274();
     }
 }

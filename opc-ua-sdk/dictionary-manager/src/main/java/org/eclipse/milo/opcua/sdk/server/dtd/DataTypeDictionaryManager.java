@@ -193,7 +193,8 @@ public class DataTypeDictionaryManager implements Lifecycle {
             LocalizedText.NULL_VALUE,
             uint(0),
             uint(0),
-            false
+            false,
+            null
         );
 
         dataTypeNode.addReference(new Reference(
@@ -267,7 +268,8 @@ public class DataTypeDictionaryManager implements Lifecycle {
             LocalizedText.NULL_VALUE,
             uint(0),
             uint(0),
-            false
+            false,
+            null
         );
 
         dataTypeNode.addReference(new Reference(

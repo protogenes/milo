@@ -10,6 +10,8 @@
 
 package org.eclipse.milo.opcua.sdk.core.nodes;
 
+import org.eclipse.milo.opcua.stack.core.types.structured.DataTypeDefinition;
+
 public interface DataTypeNode extends Node {
 
     /**
@@ -30,4 +32,29 @@ public interface DataTypeNode extends Node {
      */
     void setIsAbstract(Boolean isAbstract);
 
+    /*
+     * The DataTypeDefinition Attribute is used to provide the meta data
+     * and encoding information for custom DataTypes.
+     * <p>
+     * Structure and Union DataTypes
+     * The Attribute is mandatory for DataTypes derived from Structure and
+     * Union. For such DataTypes, the Attribute contains a structure of the
+     * DataType {@link org.eclipse.milo.opcua.stack.core.types.structured.StructureDefinition}.
+     * <p>
+     * Enumeration and OptionSet DataTypes
+     * The Attribute is mandatory for DataTypes derived from Enumeration,
+     * OptionSet and subtypes of UInteger representing an OptionSet. For
+     * such DataTypes, the Attribute contains a structure of the DataType
+     * {@link org.eclipse.milo.opcua.stack.core.types.structured.EnumDefinition}.
+     *
+     * @return The DataTypeDefinition of this type DataType
+     */
+    DataTypeDefinition getDataTypeDefinition();
+
+    /**
+     * Set the DataTypeDefinition attribute of this DataType.
+     *
+     * @param dataTypeDefinition {@code DataTypeDefinition} of this DataType
+     */
+    void setDataTypeDefinition(DataTypeDefinition dataTypeDefinition);
 }

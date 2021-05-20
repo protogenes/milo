@@ -18,7 +18,7 @@ import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.Unsigned;
 
 public class Identifiers {
 
-    public static final org.eclipse.milo.opcua.stack.core.types.builtin.NodeId Boolean = init(1);
+    public static final NodeId Boolean = init(1);
     public static final NodeId SByte = init(2);
     public static final NodeId Byte = init(3);
     public static final NodeId Int16 = init(4);
@@ -94,6 +94,12 @@ public class Identifiers {
     public static final NodeId ReferenceTypesFolder = init(91);
     public static final NodeId XmlSchema_TypeSystem = init(92);
     public static final NodeId OPCBinarySchema_TypeSystem = init(93);
+    public static final NodeId StructureType = init(98);
+    public static final NodeId DataTypeDefinition = init(97);
+    public static final NodeId StructureDefinition = init(99);
+    public static final NodeId EnumDefinition = init(100);
+    public static final NodeId StructureField = init(101);
+    public static final NodeId EnumField = init(102);
     public static final NodeId DataTypeDescriptionType_DataTypeVersion = init(104);
     public static final NodeId DataTypeDescriptionType_DictionaryFragment = init(105);
     public static final NodeId DataTypeDictionaryType_DataTypeVersion = init(106);
@@ -105,7 +111,10 @@ public class Identifiers {
     public static final NodeId ModellingRule_MandatoryShared_NamingRule = init(116);
     public static final NodeId HasSubStateMachine = init(117);
     public static final NodeId NamingRuleType = init(120);
-    public static final NodeId Decimal128 = init(121);
+//    public static final NodeId Decimal128 = init(121);
+    public static final NodeId DataTypeDefinition_Encoding_DefaultBinary = init(121);
+    public static final NodeId StructureDefinition_Encoding_DefaultBinary = init(122);
+    public static final NodeId EnumDefinition_Encoding_DefaultBinary = init(123);
     public static final NodeId IdType = init(256);
     public static final NodeId NodeClass = init(257);
     public static final NodeId Node = init(258);
@@ -5733,6 +5742,13 @@ public class Identifiers {
     public static final NodeId AuditCreateSessionEventType_SessionId = init(14413);
     public static final NodeId AuditUrlMismatchEventType_SessionId = init(14414);
     public static final NodeId Server_ServerRedundancy_ServerNetworkGroups = init(14415);
+    public static final NodeId DataTypeDefinition_Encoding_DefaultXML = init(14797);
+    public static final NodeId StructureDefinition_Encoding_DefaultXML = init(14798);
+    public static final NodeId EnumDefinition_Encoding_DefaultXML = init(14799);
+    public static final NodeId StructureField_Encoding_DefaultXML = init(14800);
+    public static final NodeId EnumField_Encoding_DefaultXML = init(14801);
+    public static final NodeId StructureField_Encoding_DefaultBinary = init(14844);
+    public static final NodeId EnumField_Encoding_DefaultBinary = init(14845);
     public static final NodeId CertificateExpirationAlarmType_ExpirationLimit = init(14900);
     public static final NodeId Server_Namespaces_OPCUANamespaceUri = init(15182);
     public static final NodeId Server_Namespaces_OPCUANamespaceUri_NamespaceUri = init(15183);

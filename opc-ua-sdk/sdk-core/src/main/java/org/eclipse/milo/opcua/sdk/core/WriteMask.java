@@ -16,6 +16,7 @@ import java.util.Set;
 import com.google.common.collect.ImmutableSet;
 import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.UInteger;
 
+/** Part 3 8.60 */
 public enum WriteMask {
 
     AccessLevel(1),
@@ -39,7 +40,11 @@ public enum WriteMask {
     UserWriteMask(262144),
     ValueRank(524288),
     WriteMask(1048576),
-    ValueForVariableType(2097152);
+    ValueForVariableType(2097152),
+    DataTypeDefinition(0x40_0000);
+    //RolePermissions(0x80_0000),
+    //AccessRestrictions(0x100_0000),
+    //AccessLevelEx(0x200_0000);
 
     public static final Set<WriteMask> NONE = ImmutableSet.of();
 

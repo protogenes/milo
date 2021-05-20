@@ -197,6 +197,8 @@ public class AttributeWriter {
                 return WriteMask.ValueRank;
             case WriteMask:
                 return WriteMask.WriteMask;
+            case DataTypeDefinition:
+                return WriteMask.DataTypeDefinition;
 
             default:
                 throw new IllegalArgumentException("unknown AttributeId: " + attributeId);

@@ -18,6 +18,7 @@ import org.eclipse.milo.opcua.sdk.core.nodes.DataTypeNodeProperties;
 import org.eclipse.milo.opcua.stack.core.AttributeId;
 import org.eclipse.milo.opcua.stack.core.UaException;
 import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
+import org.eclipse.milo.opcua.stack.core.types.builtin.ExtensionObject;
 import org.eclipse.milo.opcua.stack.core.types.builtin.LocalizedText;
 import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
 import org.eclipse.milo.opcua.stack.core.types.builtin.QualifiedName;
@@ -25,13 +26,15 @@ import org.eclipse.milo.opcua.stack.core.types.builtin.StatusCode;
 import org.eclipse.milo.opcua.stack.core.types.builtin.Variant;
 import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.UInteger;
 import org.eclipse.milo.opcua.stack.core.types.enumerated.NodeClass;
+import org.eclipse.milo.opcua.stack.core.types.structured.DataTypeDefinition;
 import org.eclipse.milo.opcua.stack.core.types.structured.EnumValueType;
 
 import static org.eclipse.milo.opcua.sdk.core.nodes.DataTypeNodeProperties.NodeVersion;
 
 public class UaDataTypeNode extends UaNode implements DataTypeNode {
 
-    private Boolean isAbstract;
+    private Boolean             isAbstract;
+    private DataTypeDefinition dataTypeDefinition;
 
     public UaDataTypeNode(
         OpcUaClient client,
@@ -42,12 +45,14 @@ public class UaDataTypeNode extends UaNode implements DataTypeNode {
         LocalizedText description,
         UInteger writeMask,
         UInteger userWriteMask,
-        Boolean isAbstract
+        Boolean isAbstract,
+        DataTypeDefinition dataTypeDefinition
     ) {
 
         super(client, nodeId, nodeClass, browseName, displayName, description, writeMask, userWriteMask);
 
         this.isAbstract = isAbstract;
+        this.dataTypeDefinition = dataTypeDefinition;
     }
 
     /**
@@ -72,6 +77,16 @@ public class UaDataTypeNode extends UaNode implements DataTypeNode {
     @Override
     public synchronized void setIsAbstract(Boolean isAbstract) {
         this.isAbstract = isAbstract;
+    }
+
+    @Override
+    public DataTypeDefinition getDataTypeDefinition() {
+        return dataTypeDefinition;
+    }
+
+    @Override
+    public void setDataTypeDefinition(DataTypeDefinition dataTypeDefinition) {
+        this.dataTypeDefinition = dataTypeDefinition;
     }
 
     /**
@@ -110,6 +125,46 @@ public class UaDataTypeNode extends UaNode implements DataTypeNode {
             throw new UaException(statusCode, "write IsAbstract failed");
         } else {
             setIsAbstract(isAbstract);
+        }
+    }
+
+    /**
+     * Read the DataTypeDefinition attribute for this Node from the server and update the local
+     * attribute if the operation succeeds.
+     *
+     * @return the {@link DataTypeDefinition} read from the server.
+     * @throws UaException if a service- or operation-level error occurs.s
+     */
+    public DataTypeDefinition readDataTypeDefinition() throws UaException {
+        DataValue value = readAttribute(AttributeId.DataTypeDefinition);
+
+        StatusCode statusCode = value.getStatusCode();
+
+        if (statusCode != null && statusCode.isBad()) {
+            throw new UaException(statusCode, "read DataTypeDefinition failed");
+        } else {
+            ExtensionObject dataTypeDefinitionObj = (ExtensionObject) value.getValue().getValue();
+            DataTypeDefinition dataTypeDefinition = dataTypeDefinitionObj.isNull() ? null :
+                (DataTypeDefinition) dataTypeDefinitionObj.decode(client.getStaticSerializationContext());
+            return dataTypeDefinition;
+        }
+    }
+
+    /**
+     * Write a new DataTypeDefinition attribute for this Node to the server and update the local attribute
+     * if the operation succeeds.
+     *
+     * @param dataTypeDefinition the {@link DataTypeDefinition} to write to the server.
+     * @throws UaException if a service- or operation-level error occurs.
+     */
+    public void writeDataTypeDefinition(DataTypeDefinition dataTypeDefinition) throws UaException {
+        DataValue value = DataValue.valueOnly(new Variant(dataTypeDefinition));
+        StatusCode statusCode = writeAttribute(AttributeId.DataTypeDefinition, value);
+
+        if (statusCode != null && statusCode.isBad()) {
+            throw new UaException(statusCode, "write DataTypeDefinition failed");
+        } else {
+            setDataTypeDefinition(dataTypeDefinition);
         }
     }
 
@@ -202,6 +257,8 @@ public class UaDataTypeNode extends UaNode implements DataTypeNode {
         switch (attributeId) {
             case IsAbstract:
                 return DataValue.valueOnly(new Variant(getIsAbstract()));
+            case DataTypeDefinition:
+                return DataValue.valueOnly(new Variant(getDataTypeDefinition()));
             default:
                 return super.getAttributeValue(attributeId);
         }
@@ -212,6 +269,13 @@ public class UaDataTypeNode extends UaNode implements DataTypeNode {
         switch (attributeId) {
             case IsAbstract: {
                 setIsAbstract((Boolean) value.getValue().getValue());
+                break;
+            }
+            case DataTypeDefinition: {
+                ExtensionObject dataTypeDefinitionObj = (ExtensionObject) value.getValue().getValue();
+                DataTypeDefinition dataTypeDefinition = dataTypeDefinitionObj.isNull() ? null :
+                    (DataTypeDefinition) dataTypeDefinitionObj.decode(client.getStaticSerializationContext());
+                setDataTypeDefinition(dataTypeDefinition);
                 break;
             }
             default: {
